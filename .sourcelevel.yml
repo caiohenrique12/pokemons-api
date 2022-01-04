@@ -1,0 +1,12 @@
+pull_requests:
+  enabled: false
+engines:
+  rubocop:
+    enabled: true
+  reek:
+    enabled: true
+  duplication:
+    enabled: true
+exclude_paths:
+- app/lib/task/rack_test.rake
+- config.ru

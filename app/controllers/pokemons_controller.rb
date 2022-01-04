@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require "sinatra/reloader"
 require 'pry'
-require 'app/lib/utils/file_helper'
 
 class PokemonsController < Sinatra::Base
   configure :development do
@@ -9,15 +8,15 @@ class PokemonsController < Sinatra::Base
   end
 
   post '/api/v1/pokemons/create' do
-    Utils::FileHelper.new(request.body.read).call
+    FileHelper.new(request.body.read).call
 
     status 200
   end
 
-  get '/api/v1/pokemons/:name' do
-    "#{params['name']}"
+  get '/api/v1/pokemons/' do
+    "Hi #{params['name']}"
   end
 
-  get '/api/v1/pokemons/downloads/:name' do
+  get '/api/v1/pokemons/downloads/' do
   end
 end
