@@ -2,7 +2,6 @@ require 'securerandom'
 require 'json'
 require "json-schema"
 
-
 class JsonHelper
   def initialize(json_file)
     @json_file = JSON.parse(json_file)
@@ -37,7 +36,7 @@ class JsonHelper
   end
 
   def validate_schema
-    JSON::Validator.fully_validate(schema, @json_file)
+    JSON::Validator.fully_validate(schema, json_file)
   end
 
   def schema
