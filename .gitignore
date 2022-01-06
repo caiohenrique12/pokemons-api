@@ -8,7 +8,8 @@
 /spec/examples.txt
 /test/tmp/
 /test/version_tmp/
-!tmp/db/
+!tmp/
+tmp/db/
 !tmp/!files/**
 
 # Used by dotenv library to load environment variables.
