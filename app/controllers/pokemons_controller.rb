@@ -8,9 +8,13 @@ class PokemonsController < Sinatra::Base
   end
 
   post '/api/v1/pokemons/create' do
-    FileHelper.new(request.body.read).call
+    json_helper = JsonHelper.new(request.body.read).save_file
 
-    status 200
+    if json_helper.errors
+      halt 400, json_helper.errors
+    else
+      halt 201, 'Success'
+    end
   end
 
   get '/api/v1/pokemons/' do

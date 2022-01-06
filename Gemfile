@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json-schema'
 gem 'pg'
 gem 'pry'
 gem 'rspec'

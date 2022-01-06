@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "num": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "img": {
+      "type": "string"
+    },
+    "type": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "height": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "candy": {
+      "type": "string"
+    },
+    "candy_count": {
+      "type": "integer"
+    },
+    "egg": {
+      "type": "string"
+    },
+    "spawn_chance": {
+      "type": "number"
+    },
+    "avg_spawns": {
+      "type": "integer"
+    },
+    "spawn_time": {
+      "type": "string"
+    },
+    "multipliers": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "weaknesses": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "next_evolution": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "num",
+            "name"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "num": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "num",
+            "name"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "num",
+    "name",
+    "img",
+    "type",
+    "height",
+    "weight",
+    "candy",
+    "candy_count",
+    "egg",
+    "spawn_chance",
+    "avg_spawns",
+    "spawn_time",
+    "multipliers",
+    "weaknesses",
+    "next_evolution"
+  ]
+}
