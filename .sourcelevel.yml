@@ -1,5 +1,3 @@
-pull_requests:
-  enabled: true
 engines:
   rubocop:
     enabled: true
