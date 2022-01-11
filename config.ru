@@ -12,8 +12,5 @@ Sidekiq.configure_server do |config|
 end
 
 Sidekiq::Web.use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
-# Sidekiq::Web.use(Rack::Auth::Basic) do |username, password|
-#   [username, password] == ['mike blake', 'password']
-# end
 
 run Rack::URLMap.new('/' => PokemonsController, '/sidekiq' => Sidekiq::Web) 
