@@ -14,10 +14,13 @@ services:
       - 'redis:/data'
   sidekiq:
     depends_on:
-      - 'db'
-      - 'redis'
-    build: .
-    command: bundle exec sidekiq -C app/config/sidekiq.yml
+      - db
+      - redis
+    build:
+      context: .
+      args:
+        - ENV_BUILD=development
+    command: bundle exec sidekiq -C config/sidekiq.yml -r ./app/lib/workers/pokemon_worker.rb
     volumes:
       - .:/pokemons-api
       - '/pokemons-api/tmp'

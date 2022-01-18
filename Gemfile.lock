@@ -61,6 +61,7 @@ DEPENDENCIES
   json-schema
   pg
   pry
+  rack
   rack-test
   rspec
   sidekiq
