@@ -1,0 +1,6 @@
+:logfile: tmp/log/sidekiq_development.log
+:verbose: true
+:concurrency: 10
+pool: 2
+:queues:
+  - default

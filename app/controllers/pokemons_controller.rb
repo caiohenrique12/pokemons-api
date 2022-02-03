@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require "sinatra/reloader"
-require 'pry'
 
 class PokemonsController < Sinatra::Base
   configure :development do
@@ -8,11 +7,12 @@ class PokemonsController < Sinatra::Base
   end
 
   post '/api/v1/pokemons/create' do
-    json_helper = JsonHelper.new(request.body.read).save_file
+    json_helper = JsonHelper.new(request.body.read).valid_file
 
     if json_helper.errors
       halt 400, json_helper.errors
     else
+      PokemonWorker.perform_async(json_helper.json_file, json_helper.file_name)
       halt 201, 'Success'
     end
   end

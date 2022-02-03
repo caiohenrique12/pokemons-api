@@ -1,11 +1,31 @@
 version: '3.9'
 services:
   db:
-    image: postgres:12.1
+    image: postgres:13-alpine
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+      PGDATA: /tmp
+      POSTGRES_HOST_AUTH_METHOD: trust
+  redis:
+    image: 'redis:6-alpine'
+    volumes:
+      - 'redis:/data'
+  sidekiq:
+    depends_on:
+      - db
+      - redis
+    build:
+      context: .
+      args:
+        - ENV_BUILD=development
+    command: bundle exec sidekiq -C config/sidekiq.yml -r ./app/lib/workers/pokemon_worker.rb
+    volumes:
+      - .:/pokemons-api
+      - '/pokemons-api/tmp'
+    environment:
+      REDIS_URL: redis://redis
   web:
     volumes:
       - .:/pokemons-api
@@ -14,6 +34,11 @@ services:
       - "4567:4567"
     depends_on:
       - db
+    environment:
+      REDIS_URL: redis://redis
     restart: on-failure
     stdin_open: true
     tty: true
+volumes:
+  db:
+  redis:
