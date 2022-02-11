@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'json-schema'
+gem 'jwt'
 gem 'pg'
 gem 'pry'
 gem 'rack'
