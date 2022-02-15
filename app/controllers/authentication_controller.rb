@@ -1,7 +1,12 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require 'sinatra/reloader'
+require "sinatra/activerecord"
 
 class AuthenticationController < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
+
   configure :development do
     register Sinatra::Reloader
   end
