@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV['APP_ENV'] = 'test'
 
 require './app/controllers/pokemons_controller'
@@ -30,7 +32,7 @@ class PokemonsControllerTest < Test::Unit::TestCase
   end
 
   def test_it_says_pokemon_name
-    get '/api/v1/pokemons/', params= {name: 'bulbasaur'}
+    get '/api/v1/pokemons/', params = { name: 'bulbasaur' }
 
     assert last_response.body.include?('Hi bulbasaur')
   end

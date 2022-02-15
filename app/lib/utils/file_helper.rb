@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'securerandom'
 require 'json'
-require "json-schema"
+require 'json-schema'
 
 class JsonHelper
   attr_accessor :json_file, :file_name, :errors
@@ -12,9 +14,7 @@ class JsonHelper
   end
 
   def valid_file
-    if invalid?
-      self.errors = validate_schema
-    end
+    self.errors = validate_schema if invalid?
 
     self
   end

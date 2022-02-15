@@ -1,11 +1,20 @@
 source 'https://rubygems.org'
 
+gem 'activerecord'
+gem 'bcrypt'
 gem 'json-schema'
+gem 'jwt'
 gem 'pg'
-gem 'pry'
 gem 'rack'
-gem 'rspec'
 gem 'rack-test'
+gem "rake"
+gem 'rspec'
 gem 'sidekiq'
-gem 'sinatra'
+gem "sinatra-activerecord"
 gem 'sinatra-contrib'
+gem 'sinatra'
+
+group :development, :test do
+  gem 'pry'
+  gem 'rubocop', require: false
+end
