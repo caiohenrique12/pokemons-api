@@ -1,7 +1,12 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
-require "sinatra/reloader"
+require 'sinatra/reloader'
+require "sinatra/activerecord"
 
 class PokemonsController < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
+
   configure :development do
     register Sinatra::Reloader
   end
@@ -21,6 +26,6 @@ class PokemonsController < Sinatra::Base
     "Hi #{params['name']}"
   end
 
-  get '/api/v1/pokemons/downloads/' do
-  end
+  # get "/api/v1/pokemons/downloads/" do
+  # end
 end

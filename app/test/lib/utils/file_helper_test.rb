@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV['APP_ENV'] = 'test'
 
 require './app/lib/utils/file_helper'
@@ -18,7 +20,7 @@ class JsonHelperTest < Test::Unit::TestCase
 
     JsonHelper.new(file).save_file
 
-    assert Dir["tmp/files/*.json"].any?
+    assert Dir['tmp/files/*.json'].any?
   end
 
   def test_if_json_are_saved_with_wrong_schema
@@ -26,6 +28,6 @@ class JsonHelperTest < Test::Unit::TestCase
 
     JsonHelper.new(file).save_file
 
-    assert Dir["tmp/files/*.json"].any?
+    assert Dir['tmp/files/*.json'].any?
   end
 end
